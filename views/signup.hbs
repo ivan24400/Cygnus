@@ -1,0 +1,93 @@
+{{> navbar}}
+
+<div class="container">
+    <div class="box-big">
+        <form action="/signup" id="sign-up-form" method="post">
+            <h3 class="text-left">Create an account</h3>
+            <hr>
+            <div class="form-group form-inline row-align row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="su_firstname">First Name</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" autocomplete="off" class="form-control" id="su_firstname" name="su_firstname" pattern="[A-Za-z]+" required>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="su_lastname">Last Name</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" autocomplete="off" class="form-control" id="su_lastname" name="su_lastname" pattern="[A-Za-z]+" required>
+                </div>
+            </div>
+            <div class="form-group form-inline row-align row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="su_email">Email</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    {{#if error}}
+                    <input type="text" autocomplete="off" class="form-control" id="su_email" name="su_email" style="border-color:red" pattern="(.*@.*\..{2,4})" required>
+                    <h6 style="color:red">Email already registered !</h6>
+                    {{else}}
+<input type="text" autocomplete="off" class="form-control" id="su_email" name="su_email" pattern="(.*@.*\..{2,4})" required>
+                    {{/if}}
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="su_genders">Gender</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div name="su_genders" class="radio">
+                        <label class="radio-inline">
+                            <input type="radio" name="su_gender" value="m">Male</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="su_gender" value="f">Female</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="su_gender" value="o">Others</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-inline row-align row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label class="control-label" for="su_dob">Date of Birth</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" autocomplete="off" id="su_dob" name="su_dob" class="form-control datepicker" autocomplete="off">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="su_password">Password</label>
+                </div>
+                <div class="col-lg-4  col-md-2  col-sm-2">
+                    <div class="flexContainer">
+                        <input type="password" autocomplete="off" pattern=".{8,}" class="form-control" id="su_password" name="su_password" placeholder="Password" oninvalid="setCustomValidity('Minimum 8 characters')" required>
+                        <span class="glyphicon glyphicon-eye-open inputIcon" id="su_passIcon" onclick="togglePassword('su_password','su_passIcon');"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <h6 class="text-center">Read
+                    <a href="" class="hyperlink" data-toggle="modal" data-target="#su_terms">terms and conditions</a>
+                </h6>
+            </div>
+            <div class="form-group row ">
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-10 col-md-10  col-sm-10 col-xs-10">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+  <div class="modal fade" id="su_terms" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Terms &amp; Conditions</h4>
+        </div>
+        <div class="modal-body">
+          <p>Cygnus reserves rights to all of your data.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

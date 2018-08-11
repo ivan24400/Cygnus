@@ -1,0 +1,74 @@
+{{> navbar user=username}}
+<div class="container">
+    <div class="box-big">
+        <h3 class="text-left">Contacts</h3>
+        <hr>
+        <div class="row form-group">
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div id="u_search_box" class="form-group inner-addon left-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input type="text" id="u_search" class="form-control" onkeyup="search_contact()" maxlength="100" placeholder="Search ..."
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-6">
+                <a href='/user/add_contact' class="btn btn-success" id="u_add_contact" title="Add Contact">
+                    <i class="glyphicon glyphicon-plus visible-xs"></i>
+                    <span class="hidden-xs">Add Contact</span>
+                </a>
+                <button type="button" class="btn btn-danger" id="u_delete_multiple" title="Delete Contact" data-toggle="modal" data-target="#u_modal_delete_multiple">
+                    <i class="glyphicon glyphicon-trash visible-xs"></i>
+                    <span class="hidden-xs">Delete Contact</span>
+                </button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                <select id="u_group" class="form-control">
+                    <option>All</option>
+                    <option>Family</option>
+                    <option>Friends</option>
+                    <option>Neighbours</option>
+                    <option>Work</option>
+                    <option>Places</option>
+                    <option>Others</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group" id="u_total_contacts_row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h6>Total contacts:
+                    <span id="u_total_contacts"></span>
+                </h6>
+            </div>
+        </div>
+        <div id="table_contact_no_rows" hidden>
+            <h3>No contacts !</h3>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <table id="table_contact" class="table">
+                    <thead class="table-contact-header">
+                        <tr>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <input type="checkbox" id="u_select_all_contacts" name="u_select_all_contacts" title="Select all" value="">
+                            </td>
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-4">Name</td>
+                            <td class="col-lg-4 col-md-4 col-sm-4 col-xs-6 table-cell-text">Phone</td>
+                            <td class="col-lg-4 col-md-4 col-sm-4 hidden-xs">Email</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 hidden-xs text-center">Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{> dialog delete=true}}
+{{> dialog info=true}}
+
+</div>
+<script src="/javascripts/user.js"></script>

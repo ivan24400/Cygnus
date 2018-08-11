@@ -1,0 +1,25 @@
+{{#if delete}}
+<div class="modal fade" id="u_modal_delete_contact" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Delete
+                    <span id="u_modal_dc_msg"></span> ?</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger u_modal_btn_delete_contact" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}} {{#if info}}
+<div class="modal fade" id="u_modal_info" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p id="u_modal_info_msg"></p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}} {{/if}}

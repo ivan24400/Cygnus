@@ -1,0 +1,137 @@
+{{> navbar user=username}}
+<div class="container">
+    <div class="box-big">
+        <form id="contact_form" class="form-horizontal" action="/user/contact" method="POST" enctype="multipart/form-data">
+            <div class="icon-menu text-right form-inline">
+                <span id="c_edit_contact" class="action-menu-item glyphicon glyphicon-pencil" title="Edit"></span>
+                <input id="c_id" name="c_id" type="hidden" value="">
+                <span id="c_delete_contact" class="action-menu-item glyphicon glyphicon-trash" title="Delete"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-12 profile-header-container">
+                    <div class="profile-header-img">
+                        <img class="img-circle c-profile-pic-img" id="c_profile_pic_img" src="https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
+                        />
+                        <div class="change-label-container">
+                            <input type="file" id="c_profile_pic" class="img-upload" name="file" accept=".png, .jpg, .jpeg" />
+                            <span class="label label-default profile-pic-action" id="c_profile_pic_label" onclick="c_profile_pic.click()">Change</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-inline row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="c_firstname">First Name</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="c_firstname" name="c_firstname" class="form-control" autocomplete="off" pattern="[A-Za-z]{2,}" required>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="c_lastname">Last Name</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="c_lastname" name="c_lastname" class="form-control" autocomplete="off" pattern="[A-Za-z]+">
+                </div>
+            </div>
+            <div class="form-group form-inline row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label for="c_address">Address</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <textarea class="form-control" id="c_address" name="c_address" rows="3" pattern=".{2,100}" autocomplete="off"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label for="c_birth">Date of Birth</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <input type="text" id="c_dob" name="c_dob" class="form-control datepicker" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row row-nest">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label for="c_address">Group</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <select id="c_group" name="c_group" form="contact_form" class="form-control">
+                                <option id='c_group_o' value='o'>Others</option>
+                                <option id='c_group_b' value='b'>Friends</option>
+                                <option id='c_group_f' value='f'>Family</option>
+                                <option id='c_group_w' value='w'>Work</option>
+                                <option id='c_group_p' value='p'>Places</option>
+                                <option id='c_group_n' value='n'>Neighbours</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-inline row c_phone_item">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="c_phone_no">Phone</label>
+                </div>
+                <div id="c_phone_input" class="col-lg-4 col-md-5 col-sm-5 col-xs-10">
+                    <table class="phone-list">
+                        <tr>
+                            <td>
+                                <input type="tel" id="c_phone_no0" name="c_phone_no" class="form-control" pattern="[0-9]{1,15}" autocomplete="off" required>
+                            </td>
+                            <td>
+                                <select id="c_phone_type0" name="c_phone_type" form="contact_form" class="form-control">
+                                    <option id='ph0' value='h'>Home</option>
+                                    <option id='pw0' value='w'>Work</option>
+                                    <option id='po0' value='o'>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <span class="glyphicon glyphicon-plus action-item add_phone"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group form-inline row c_email_item">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label for="c_email">Email</label>
+                </div>
+                <div id="c_email_input" class="col-lg-4 col-md-5 col-sm-5 col-xs-10">
+                    <table class="email-list">
+                        <tr>
+                            <td>
+                                <input type="text" id="c_email0" name="c_email" class="form-control" pattern=".*@.*\..{1,4}" autocomplete="off">
+                            </td>
+                            <td>
+                                <select id="c_email_type0" name="c_email_type" form="contact_form" class="form-control">
+                                    <option id='eh0' value='h'>Home</option>
+                                    <option id='ew0' value='w'>Work</option>
+                                    <option id='eo0' value='o'>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <span class="glyphicon glyphicon-plus action-item add_email"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group form-inline row">
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-3 col-md-3 col-sm-4  col-xs-12">
+                    <input type="submit" class="btn btn-primary" value="Save">
+                    <input type="button" class="btn" id="c_cancel" onclick="window.history.back();" value="Cancel">
+                </div>
+            </div>
+    </div>
+    </form>
+</div>
+</div>
+{{> dialog delete=true}}
+{{> dialog info=true}}
+<script src="/javascripts/contact.js"></script>
+<script>
+    $(document).ready(load_contact({{ c_id }}));
+</script>
